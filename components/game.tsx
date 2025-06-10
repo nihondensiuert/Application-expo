@@ -1,4 +1,4 @@
-import React, { useState,} from "react";
+import { useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Dimensions, ScrollView } from "react-native";
 
 // カードの状態を表す型定義
