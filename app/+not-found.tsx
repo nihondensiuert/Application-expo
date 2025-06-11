@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    width: '100%',
+    height: '100%',
   },
   link: {
     marginTop: 15,
