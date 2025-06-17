@@ -15,94 +15,40 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: '#7F38F5', // 보라색으로 통일
+        tabBarInactiveTintColor: '#999',
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            position: 'absolute',
-            height: 90, // ← 高さを拡張
-            paddingBottom: 20, // ← 必要に応じて下余白も追加
-          },
-          android: {
-            height: 90,
-            paddingBottom: 20,
-          },
-          default: {
-            height: 90,
-            paddingBottom: 20,
-          },
-        }),
+        tabBarStyle: {
+          display: 'none', // 기본 탭바 숨기기
+        },
       }}>
       <Tabs.Screen
-        name="index"
+        name="study"
         options={{
           title: 'ホーム',
-          tabBarLabelPosition: 'below-icon',
           tabBarIcon: ({ color, focused }) => (
-            <View style={{ alignItems: 'center', justifyContent: 'flex-end', width: 80, height: 90 }}>
-              <Image
-                source={require('@/assets/images/Homeicon.svg')}
-                style={{ width: 20, height: 22, marginBottom: 6 }}
-                contentFit="cover"
-              />
-              <Text style={{ fontSize: 12, color: color, marginTop: 0, fontWeight: focused ? 'bold' : 'normal' }}>
-                ホーム
-              </Text>
-            </View>
+            <IconSymbol size={28} name={focused ? 'house.fill' : 'house'} color={color} />
           ),
-          tabBarLabel: () => null,
         }}
       />
       <Tabs.Screen
         name="classroom"
         options={{
           title: 'クラスルーム',
-          tabBarLabelPosition: 'below-icon',
           tabBarIcon: ({ color, focused }) => (
-            <View style={{ alignItems: 'center', justifyContent: 'flex-end', width: 100, height: 90 }}>
-              <Image
-                source={require('@/assets/images/Classroomicon.svg')}
-                style={{ width: 20, height: 22, marginBottom: 6 }}
-                contentFit="cover"
-              />
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: color,
-                  marginTop: 0,
-                  fontWeight: focused ? 'bold' : 'normal',
-                  letterSpacing: -1,
-                }}
-                numberOfLines={1}
-                ellipsizeMode="tail"
-              >
-                クラスルーム
-              </Text>
-            </View>
+            <IconSymbol size={28} name={focused ? 'graduationcap.fill' : 'graduationcap'} color={color} />
           ),
-          tabBarLabel: () => null,
         }}
       />
       <Tabs.Screen
         name="mypage"
         options={{
           title: 'マイページ',
-          tabBarLabelPosition: 'below-icon',
           tabBarIcon: ({ color, focused }) => (
-            <View style={{ alignItems: 'center', justifyContent: 'flex-end', width: 80, height: 90 }}>
-              <Image
-                source={require('@/assets/images/Mypageicon.svg')}
-                style={{ width: 20, height: 20, marginBottom: 6 }}
-                contentFit="cover"
-              />
-              <Text style={{ fontSize: 12, color: color, marginTop: 0, fontWeight: focused ? 'bold' : 'normal' }}>
-                マイページ
-              </Text>
-            </View>
+            <IconSymbol size={28} name={focused ? 'person.fill' : 'person'} color={color} />
           ),
-          tabBarLabel: () => null,
         }}
       />
     </Tabs>
